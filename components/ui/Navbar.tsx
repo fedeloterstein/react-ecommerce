@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Link,
   Box,
   Button,
   IconButton,
@@ -15,42 +14,39 @@ export const Navbar = () => {
   return (
     <AppBar>
       <Toolbar>
-        <NextLink href={'/'} passHref>
-          <Link display={'flex'} alignItems="center">
-            <Typography variant="h6">React |</Typography>
-            <Typography sx={{ ml: 0.5 }}>Ecommerce</Typography>
-          </Link>
+        <NextLink style={{textDecoration: 'none'}}  href={'/'} passHref>
+            <Typography variant="h6">React | Ecommerce</Typography>
         </NextLink>
         <Box flex={1} />
         <Box sx={{display: {xs: 'none', sm: 'block'}}}>
-          <NextLink href={'/category/men'} passHref>
-            <Link>
+          <NextLink style={{textDecoration: 'none'}}  href={'/category/men'} passHref>
+
               <Button>Hombres</Button>
-            </Link>
+ 
           </NextLink>
-          <NextLink href={'/category/women'} passHref>
-            <Link>
+          <NextLink style={{textDecoration: 'none'}}  href={'/category/women'} passHref>
+    
               <Button>Mujeres</Button>
-            </Link>
+  
           </NextLink>
-          <NextLink href={'/category/kid'} passHref>
-            <Link>
+          <NextLink style={{textDecoration: 'none'}}  href={'/category/kid'} passHref>
+     
               <Button>Niños</Button>
-            </Link>
+        
           </NextLink>
         </Box>
         <Box flex={1} />
         <IconButton>
           <SearchOutlined />
         </IconButton>
-        <NextLink href={'/cart'} passHref>
-          <Link>
+        <NextLink style={{textDecoration: 'none'}}  href={'/cart'} passHref>
+     
             <IconButton>
               <Badge badgeContent={2} color={'secondary'}>
                 <ShoppingCartOutlined />
               </Badge>
             </IconButton>
-          </Link>
+
         </NextLink>
         <Button>Menu</Button>
       </Toolbar>

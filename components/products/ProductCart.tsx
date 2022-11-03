@@ -5,7 +5,6 @@ import {
   CardMedia,
   Box,
   Typography,
-  Link,
 } from '@mui/material'
 import NextLink from 'next/link'
 import React, { FC, useMemo, useState } from 'react'
@@ -34,11 +33,11 @@ export const ProductCart: FC<Props> = ({ product }) => {
     >
       <Card>
        <NextLink href={'/product/slug'} passHref prefetch={false}>
-        <Link>
+
         <CardActionArea>
           <CardMedia className="fadeIn" component={'img'} image={productImage} alt={product.title} />
         </CardActionArea>
-        </Link>
+
        </NextLink>
       </Card>
       <Box sx={{ mt: 1 }} className="fadeIn">

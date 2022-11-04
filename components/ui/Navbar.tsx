@@ -9,8 +9,12 @@ import {
   Badge,
 } from '@mui/material'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 
 export const Navbar = () => {
+
+  const {asPath} = useRouter()
+
   return (
     <AppBar>
       <Toolbar>
@@ -21,17 +25,17 @@ export const Navbar = () => {
         <Box sx={{display: {xs: 'none', sm: 'block'}}}>
           <NextLink style={{textDecoration: 'none'}}  href={'/category/men'} passHref>
 
-              <Button>Hombres</Button>
+              <Button color={asPath === '/category/men' ? 'primary' : 'info'}>Hombres</Button>
  
           </NextLink>
           <NextLink style={{textDecoration: 'none'}}  href={'/category/women'} passHref>
     
-              <Button>Mujeres</Button>
+              <Button color={asPath === '/category/women' ? 'primary' : 'info'}>Mujeres</Button>
   
           </NextLink>
           <NextLink style={{textDecoration: 'none'}}  href={'/category/kid'} passHref>
      
-              <Button>Niños</Button>
+              <Button color={asPath === '/category/kid' ? 'primary' : 'info'}>Niños</Button>
         
           </NextLink>
         </Box>

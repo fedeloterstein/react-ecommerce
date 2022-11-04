@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import { ShopLayout } from '../components/layouts/ShopLayout'
 import { ProductList } from '../components/products'
+import { FullScreenLoading } from '../components/ui'
 import { useProducts } from '../hooks'
 
 
@@ -20,7 +21,7 @@ const {products, isLoading} = useProducts('/products')
       </Typography>
       {
         isLoading
-        ? <h1>Cargando...</h1>
+        ? <FullScreenLoading />
         : <ProductList products={products}/>
       }
   

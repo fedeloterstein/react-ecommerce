@@ -13,6 +13,7 @@ import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { UiContext } from '../../context'
 
+
 export const Navbar = () => {
 
   const {asPath} = useRouter()

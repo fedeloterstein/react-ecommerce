@@ -1,3 +1,3 @@
-export * from './UiContext';
-export * from './UiProvider';
+export * from './uiContext';
+export * from './uiProvider';
 export * from './uiReducer';

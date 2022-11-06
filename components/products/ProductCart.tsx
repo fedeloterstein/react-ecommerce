@@ -5,6 +5,7 @@ import {
   CardMedia,
   Box,
   Typography,
+  Chip,
 } from '@mui/material'
 import NextLink from 'next/link'
 import React, { FC, useMemo, useState } from 'react'
@@ -16,7 +17,7 @@ interface Props {
 
 export const ProductCart: FC<Props> = ({ product }) => {
   const [isHovered, setisHovered] = useState(false)
-const [isImageLoaded, setisImageLoaded] = useState(false)
+  const [isImageLoaded, setisImageLoaded] = useState(false)
   const productImage = useMemo(() => {
     return isHovered
       ? `/products/${product.images[1]}`
@@ -32,15 +33,36 @@ const [isImageLoaded, setisImageLoaded] = useState(false)
       onMouseLeave={() => setisHovered(false)}
     >
       <Card>
-       <NextLink href={`/product/${product.slug}`} passHref prefetch={false}>
+        <NextLink href={`/product/${product.slug}`} passHref prefetch={false}>
+          <CardActionArea>
+            {product.inStock === 0 && (
+              <Chip
+                size="small"
+                color="primary"
+                label="No disponible"
+                sx={{
+                  position: 'absolute',
+                  zIndex: 99,
+                  top: '10px',
+                  left: '10px',
+                }}
+              />
+            )}
 
-        <CardActionArea>
-          <CardMedia className="fadeIn" component={'img'} image={productImage} alt={product.title} onLoad={() => setisImageLoaded(true)}/>
-        </CardActionArea>
-
-       </NextLink>
+            <CardMedia
+              className="fadeIn"
+              component={'img'}
+              image={productImage}
+              alt={product.title}
+              onLoad={() => setisImageLoaded(true)}
+            />
+          </CardActionArea>
+        </NextLink>
       </Card>
-      <Box sx={{ mt: 1, display: isImageLoaded ? 'block' : 'none' }} className="fadeIn">
+      <Box
+        sx={{ mt: 1, display: isImageLoaded ? 'block' : 'none' }}
+        className="fadeIn"
+      >
         <Typography fontWeight={700}>{product.title}</Typography>
         <Typography fontWeight={500}>${product.price}</Typography>
       </Box>

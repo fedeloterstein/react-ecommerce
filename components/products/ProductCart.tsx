@@ -32,7 +32,7 @@ const [isImageLoaded, setisImageLoaded] = useState(false)
       onMouseLeave={() => setisHovered(false)}
     >
       <Card>
-       <NextLink href={'/product/slug'} passHref prefetch={false}>
+       <NextLink href={`/product/${product.slug}`} passHref prefetch={false}>
 
         <CardActionArea>
           <CardMedia className="fadeIn" component={'img'} image={productImage} alt={product.title} onLoad={() => setisImageLoaded(true)}/>

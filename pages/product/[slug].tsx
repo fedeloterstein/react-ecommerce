@@ -77,7 +77,7 @@ const ProductPage: NextPage<Props> = ({ product }) => {
             </Box>
 
             {product.inStock > 0 ? (
-              <Button color="secondary" className="circular-btn">
+              <Button color="secondary" className="circular-btn" onClick={onAddProduct}>
                 {
                   tempCartProduct.size 
                   ? 'Agregar al Carrito'

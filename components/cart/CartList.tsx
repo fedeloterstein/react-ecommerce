@@ -6,8 +6,6 @@ import { useContext } from 'react';
 import { CartContext } from '../../context'
 import { ICartProduct } from '../../interfaces';
 
-
-
 interface Props {
   editable?: boolean
 }

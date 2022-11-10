@@ -1,14 +1,7 @@
 import { useState, useContext } from 'react'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
-import {
-  Box,
-  Button,
-  Chip,
-  Grid,
-  TextField,
-  Typography,
-} from '@mui/material'
+import { Box, Button, Chip, Grid, TextField, Typography } from '@mui/material'
 import { ErrorOutline } from '@mui/icons-material'
 import { useForm } from 'react-hook-form'
 import { validations } from '../../utils'
@@ -45,7 +38,8 @@ const RegisterPage = () => {
     }
 
     // Todo: navegar a la pantalla que el usuario estaba
-    router.replace('/')
+    const destination = router.query.p?.toString() || '/'
+    router.replace(destination)
   }
 
   return (
@@ -121,7 +115,15 @@ const RegisterPage = () => {
             </Grid>
 
             <Grid item xs={12} display="flex" justifyContent="end">
-              <NextLink href="/auth/login">¿Ya tienes cuenta?</NextLink>
+              <NextLink
+                href={
+                  router.query.p
+                    ? `/auth/login?p=${router.query.p}`
+                    : '/auth/login'
+                }
+              >
+                ¿Ya tienes cuenta?
+              </NextLink>
             </Grid>
           </Grid>
         </Box>
